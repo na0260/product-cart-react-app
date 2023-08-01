@@ -1,5 +1,5 @@
-export default async function createCart(productID) {
-    const res = await fetch(`https://cart-api.teamrabbil.com/api/remove-cart/${productID}`, {
+export default async function removeCart(productId) {
+    const res = await fetch(`https://cart-api.teamrabbil.com/api/remove-cart/${productId}`, {
         method: "GET",
         headers: {
             "token": localStorage.getItem('token'),

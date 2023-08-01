@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import CartItem from "./CartItem.jsx";
 import fetchCart from "../utils/fetchCart.js";
+import removeCart from "../utils/removeCart.js";
 
 const CartList = () => {
     const [items, setItems] = useState([]);
@@ -13,6 +14,16 @@ const CartList = () => {
             })
             .catch(err => console.log(err))
     }, [])
+    const handleRemove = (productId)=>{
+        removeCart(productId)
+            .then(data=>{
+                if (data?.msg === "success"){
+                    const remainingItems = items.filter(item => item.product.id !== productId);
+                    setItems(remainingItems);
+                }
+            })
+            .catch(err => console.log(err))
+    }
     return (
         <div>
             <div>
@@ -20,7 +31,7 @@ const CartList = () => {
                     <div className="mt-2 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3
                  gap-10">
                         <div className="col-span-2">
-                            {items.map(item => <CartItem key={item.id} product={item.product}/>)}
+                            {items.map(item => <CartItem key={item.id} product={item.product} remove={handleRemove}/>)}
                         </div>
                         <div>
                             <div className="card card-side bg-base-100 p-5 shadow-xl shadow-amber-50">
