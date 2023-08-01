@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import CartItem from "./CartItem.jsx";
 import fetchCart from "../utils/fetchCart.js";
 import removeCart from "../utils/removeCart.js";
+import convertPrice from "../utils/convertPrice.js";
 
 const CartList = () => {
     const [items, setItems] = useState([]);
@@ -14,15 +15,22 @@ const CartList = () => {
             })
             .catch(err => console.log(err))
     }, [])
-    const handleRemove = (productId)=>{
+    const handleRemove = (productId) => {
         removeCart(productId)
-            .then(data=>{
-                if (data?.msg === "success"){
+            .then(data => {
+                if (data?.msg === "success") {
                     const remainingItems = items.filter(item => item.product.id !== productId);
                     setItems(remainingItems);
                 }
             })
             .catch(err => console.log(err))
+    }
+    const calculateTotalPrice = () => {
+        const totalPrice = items.reduce((total, currentValue) => {
+            const price = convertPrice(currentValue);
+            return total + price ;
+        }, 0);
+        return totalPrice.toLocaleString();
     }
     return (
         <div>
@@ -36,8 +44,8 @@ const CartList = () => {
                         <div>
                             <div className="card card-side bg-base-100 p-5 shadow-xl shadow-amber-50">
                                 <div className="card-body">
-                                    <h2 className="card-title">Total item : </h2>
-                                    <p>Total Price :</p>
+                                    <p>Total item : {items.length}</p>
+                                    <h2 className="card-title">Total Price : {calculateTotalPrice()} BDT</h2>
                                     <div className="flex justify-end">
                                         <button className="btn btn-primary">Checkout</button>
                                     </div>

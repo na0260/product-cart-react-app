@@ -7,6 +7,8 @@ const Product = (props) => {
             .then(data=>{
                 if (data?.msg === "success"){
                     alert("The Product is added to cart successfully")
+                }else {
+                    alert("please login first")
                 }
             })
             .catch(err=>console.log(err))

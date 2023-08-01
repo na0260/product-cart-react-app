@@ -7,7 +7,7 @@ const CartItem = (props) => {
                 <figure><img className="w-36" src={props.product.image} alt="Image"/></figure>
                 <div className="card-body">
                     <h2 className="card-title">{props.product.title}</h2>
-                    <p>{props.product.price}</p>
+                    <p>{props.product.price} BDT</p>
                     <div className="flex justify-end">
                         <button onClick={()=>{props.remove(props.product.id)}} className="btn btn-primary btn-outline w-36">Remove</button>
                     </div>
