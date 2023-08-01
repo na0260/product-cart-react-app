@@ -1,6 +1,5 @@
 import React from 'react';
 import {NavLink, useNavigate} from "react-router-dom";
-import CartList from "./CartList.jsx";
 
 const AppNav = () => {
     let button;
@@ -16,9 +15,9 @@ const AppNav = () => {
     }
     return (
         <div>
-            <div className="navbar bg-base-100">
+            <div className="navbar bg-base-100 mt-5">
                     <div className="flex-1">
-                        <NavLink to="/" className="btn btn-ghost normal-case text-xl">Apple</NavLink>
+                        <NavLink to="/" className="px-10 font-semibold text-2xl uppercase">Apple</NavLink>
                     </div>
                     <div className="flex-none">
                         <NavLink to="/cart" className="btn btn-primary mr-4">
