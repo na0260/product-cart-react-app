@@ -19,7 +19,7 @@ const Loginpage = () => {
         <Layout>
             <div className="relative flex flex-col justify-center py-60 overflow-hidden">
                 <div
-                    className="w-full p-6 m-auto bg-white rounded-md shadow-md lg:max-w-lg dark:bg-base-100 shadow-2xl">
+                    className="w-full p-6 m-auto bg-white rounded-md lg:max-w-lg dark:bg-base-100 shadow-amber-50 shadow-2xl">
                     <h1 className="text-3xl font-semibold text-center text-purple-700">Welcome Back</h1>
                         <div>
                             <label className="label">
