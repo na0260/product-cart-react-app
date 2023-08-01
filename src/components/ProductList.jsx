@@ -22,7 +22,7 @@ const ProductList = () => {
         <div>
             <div className="container mx-auto my-12 p-9">
                 <div className="mt-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4
-                 gap-4">
+                 gap-7">
                     {output}
                 </div>
             </div>

@@ -13,7 +13,7 @@ const Product = (props) => {
     }
     return (
         <div>
-            <div className="card w-100 glass">
+            <div className="card w-100 glass shadow-2xl hover:shadow-amber-50">
                 <figure><img src={props.product.image} alt="car!"/></figure>
                 <div className="card-body">
                     <h2 className="card-title">{props.product.title}</h2>
