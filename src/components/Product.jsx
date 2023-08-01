@@ -1,6 +1,16 @@
 import React from 'react';
+import createCart from "../utils/createCart.js";
 
 const Product = (props) => {
+    const handleCart = ()=>{
+        createCart(props.product.id)
+            .then(data=>{
+                if (data?.msg === "success"){
+                    alert("The Product is added to cart successfully")
+                }
+            })
+            .catch(err=>console.log(err))
+    }
     return (
         <div>
             <div className="card w-100 glass">
@@ -14,7 +24,7 @@ const Product = (props) => {
                             <p className="font-extrabold text-white">Price: {props.product.price} BDT</p>
                         </div>
                         <div className="justify-end">
-                            <button className="btn btn-primary">Add to Cart</button>
+                            <button onClick={handleCart} className="btn btn-primary">Add to Cart</button>
                         </div>
                     </div>
                 </div>
